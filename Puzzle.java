@@ -69,16 +69,26 @@ public class Puzzle{
         System.out.println(bestindex);
         System.out.println(palen.substring(bestindex, bestindex+105));
 
+        
         int count = 0;
-
-        for(int i=0; i<text.length(); i++){
-            String x = text.substring(i,i+1);
-            if(x.equals("a") || x.equals("o") || x.equals("i") || x.equals("u") || x.equals("e")){
-                count++;
+        int highestcount = 0;
+        String mostVowels = "";
+        String vowels = text;
+        for(int i = 0; i<vowels.length()-30; i++){
+            count = 0;
+            for(int j = 0; j<30; j++){
+                if(vowels.substring(i+j, i+j+1).equals("a") || vowels.substring(i+j, i+j+1).equals("o") || vowels.substring(i+j, i+j+1).equals("u") || vowels.substring(i+j, i+j+1).equals("i") || vowels.substring(i+j, i+j+1).equals("e") ){
+                    count++;
+                }
+            }
+            if(count>highestcount){
+                highestcount=count;
+            }
+            if(highestcount == count){
+                mostVowels = vowels.substring(i+29,i+109);
             }
         }
-        System.out.println(text.substring(count));
-
+        System.out.println(mostVowels);
     }
 }
 //armadillo your next task and keyword are located in the one hundred 
